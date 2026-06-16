@@ -56,7 +56,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 0;background:v
 .nav-links a{text-decoration:none;color:var(--muted);font-size:.82rem;font-weight:500;padding:.4rem .8rem;border-radius:6px;transition:all .2s var(--ease);}
 .nav-links a:hover{color:var(--text);background:var(--surface2);}
 .nav-cta{padding:.45rem 1.1rem;border-radius:8px;background:var(--violet);color:#fff;font-size:.82rem;font-weight:600;text-decoration:none;transition:all .2s var(--ease);}
-.nav-cta:hover{background:var(--violet-dim);box-shadow:0 0 20px var(--violet-glow);}
+.nav-cta:hover{background:var(--violet-dim);box-shadow:0 0 24px var(--violet-glow),0 4px 16px var(--violet-glow);transform:translateY(-1px);}
+.nav-cta:active{transform:translateY(0);}
 
 /* HERO */
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:3rem;padding:7rem 0 4rem;position:relative;}
@@ -70,10 +71,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 0;background:v
 .hero-sub strong{color:var(--text);font-weight:600;}
 .btn-group{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:2.5rem;}
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.6rem;border-radius:var(--r-sm);font-family:inherit;font-size:.875rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;transition:all .2s var(--ease);}
-.btn-primary{background:var(--violet);color:#fff;box-shadow:0 4px 24px rgba(124,109,250,.3);}
-.btn-primary:hover{background:var(--violet-dim);transform:translateY(-1px);box-shadow:0 8px 32px rgba(124,109,250,.4);}
-.btn-ghost{background:var(--surface2);color:var(--muted);border:1px solid var(--border);}
-.btn-ghost:hover{color:var(--text);border-color:var(--border2);transform:translateY(-1px);}
+.btn-primary{background:var(--violet);color:#fff;box-shadow:0 4px 24px var(--violet-glow);position:relative;overflow:hidden;}
+.btn-primary:hover{background:var(--violet-dim);transform:translateY(-2px) scale(1.02);box-shadow:0 12px 32px var(--violet-glow);filter:brightness(1.08);}
+.btn-primary:active{transform:translateY(0) scale(.98);}
+.btn-ghost{background:var(--surface2);color:var(--muted);border:1.5px solid var(--border);}
+.btn-ghost:hover{color:var(--violet);border-color:var(--violet);transform:translateY(-2px);box-shadow:0 4px 16px var(--violet-glow);background:var(--surface);}
+.btn-ghost:active{transform:translateY(0);}
 .stack-row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;}
 .stack-lbl{font-size:.72rem;font-weight:600;color:var(--subtle);letter-spacing:.06em;text-transform:uppercase;margin-right:.25rem;}
 .pill{display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .75rem;border-radius:99px;font-size:.72rem;font-weight:600;background:var(--surface2);border:1px solid var(--border);color:var(--muted);transition:all .2s;}
@@ -91,7 +94,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 0;background:v
 .hp-label{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--subtle);margin-bottom:.85rem;}
 .hp-projects{display:flex;flex-direction:column;gap:.5rem;}
 .hp-item{display:flex;align-items:center;gap:.75rem;padding:.65rem .85rem;background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);text-decoration:none;transition:all .2s;}
-.hp-item:hover{border-color:var(--violet);transform:translateX(3px);}
+.hp-item:hover{border-color:var(--violet);transform:translateX(4px);background:var(--violet-glow);box-shadow:0 2px 12px var(--violet-glow);}
 .hp-icon{font-size:1.1rem;flex-shrink:0;}
 .hp-info{flex:1;}
 .hp-name{font-size:.82rem;font-weight:600;color:var(--text);}
@@ -99,9 +102,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 0;background:v
 .hp-arrow{color:var(--subtle);font-size:.85rem;}
 .hp-item:hover .hp-arrow{color:var(--violet);}
 /* SCROLL INDICATOR */
-.scroll-hint{display:flex;flex-direction:column;align-items:center;gap:.5rem;position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);color:var(--subtle);font-size:.65rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;animation:bob 2.5s ease-in-out infinite;}
+.scroll-hint{display:flex;flex-direction:column;align-items:center;gap:.5rem;position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);color:var(--subtle);font-size:.65rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;animation:bob 2.5s ease-in-out infinite;background:none;border:none;cursor:pointer;font-family:inherit;padding:.5rem;border-radius:8px;transition:color .2s;}
+.scroll-hint:hover{color:var(--violet);}
+.scroll-hint:hover .scroll-line{background:linear-gradient(to bottom,var(--violet),var(--violet-glow));}
 @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(6px);}}
-.scroll-line{width:1px;height:28px;background:linear-gradient(to bottom,var(--violet),transparent);border-radius:99px;}
+.scroll-line{width:2px;height:28px;background:linear-gradient(to bottom,var(--violet),transparent);border-radius:99px;transition:background .2s;}
 /* MARQUEE */
 .marquee-wrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:.65rem 0;background:var(--surface);position:relative;z-index:1;}
 .marquee-track{display:flex;gap:2rem;animation:marquee 20s linear infinite;width:max-content;}
@@ -140,7 +145,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 0;background:v
 .w-search input:focus{border-color:rgba(124,109,250,.6);}
 .w-search input::placeholder{color:rgba(255,255,255,.35);}
 .w-btn{padding:.5rem 1rem;background:var(--violet);color:#fff;border:none;border-radius:var(--r-sm);font-weight:600;font-size:.75rem;cursor:pointer;font-family:inherit;white-space:nowrap;transition:background .2s;}
-.w-btn:hover{background:var(--violet-dim);}
+.w-btn:hover{background:var(--violet-dim);transform:translateY(-1px) scale(1.03);box-shadow:0 4px 12px var(--violet-glow);}
+.w-btn:active{transform:scale(.97);}
 .w-main{text-align:center;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.2rem;}
 .w-icon{font-size:3rem;line-height:1;}
 .w-temp{font-family:'Fraunces',serif;font-size:2.75rem;font-weight:700;color:#fff;line-height:1;margin-top:.25rem;}
@@ -159,10 +165,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 0;background:v
 .t-in:focus{border-color:var(--violet);}
 .t-in::placeholder{color:var(--subtle);}
 .t-add{padding:.5rem 1rem;background:var(--violet);color:#fff;border:none;border-radius:var(--r-sm);font-weight:600;font-size:.75rem;cursor:pointer;font-family:inherit;white-space:nowrap;transition:background .2s;}
-.t-add:hover{background:var(--violet-dim);}
+.t-add:hover{background:var(--violet-dim);transform:translateY(-1px) scale(1.03);box-shadow:0 4px 12px var(--violet-glow);}
+.t-add:active{transform:scale(.97);}
 .t-filters{display:flex;gap:.3rem;}
-.t-filter{padding:.28rem .7rem;border-radius:99px;font-size:.68rem;font-weight:600;border:1px solid var(--border);background:transparent;color:var(--subtle);cursor:pointer;font-family:inherit;transition:all .15s;}
-.t-filter.active{background:var(--violet);color:#fff;border-color:var(--violet);}
+.t-filter{padding:.28rem .7rem;border-radius:99px;font-size:.68rem;font-weight:600;border:1px solid var(--border);background:transparent;color:var(--subtle);cursor:pointer;font-family:inherit;transition:all .2s;}
+.t-filter:hover{border-color:var(--violet);color:var(--violet);background:var(--violet-glow);}
+.t-filter.active{background:var(--violet);color:#fff;border-color:var(--violet);box-shadow:0 2px 8px var(--violet-glow);}
 .t-list{display:flex;flex-direction:column;gap:.35rem;flex:1;overflow-y:auto;max-height:160px;padding-right:2px;}
 .t-list::-webkit-scrollbar{width:3px;}
 .t-list::-webkit-scrollbar-thumb{background:var(--border2);border-radius:99px;}
@@ -229,9 +237,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 0;background:v
 .contact-links{display:flex;justify-content:center;gap:.75rem;flex-wrap:wrap;}
 .c-link{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.5rem;border-radius:var(--r-sm);font-weight:600;font-size:.875rem;text-decoration:none;transition:all .2s var(--ease);}
 .c-primary{background:var(--violet);color:#fff;box-shadow:0 4px 20px rgba(124,109,250,.3);}
-.c-primary:hover{background:var(--violet-dim);transform:translateY(-1px);box-shadow:0 8px 32px rgba(124,109,250,.4);}
+.c-primary:hover{background:var(--violet-dim);transform:translateY(-2px) scale(1.02);box-shadow:0 8px 32px var(--violet-glow);filter:brightness(1.08);}
+.c-primary:active{transform:scale(.98);}
 .c-ghost{background:var(--surface2);color:var(--muted);border:1px solid var(--border);}
-.c-ghost:hover{color:var(--text);border-color:var(--border2);transform:translateY(-1px);}
+.c-ghost:hover{color:var(--violet);border-color:var(--violet);transform:translateY(-2px);box-shadow:0 4px 16px var(--violet-glow);}
+.c-ghost:active{transform:translateY(0);}
 
 .theme-toggle{
   width:38px;height:38px;border-radius:50%;
@@ -241,7 +251,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 0;background:v
   display:flex;align-items:center;justify-content:center;
   font-size:1rem;transition:all .2s;flex-shrink:0;
 }
-.theme-toggle:hover{border-color:var(--violet);background:var(--surface);}
+.theme-toggle:hover{border-color:var(--violet);background:var(--surface);box-shadow:0 0 12px var(--violet-glow);transform:rotate(20deg) scale(1.1);}
+.theme-toggle:active{transform:rotate(0deg) scale(.95);}
 footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);border-top:1px solid var(--border);position:relative;z-index:1;}
 
 /* REVEAL */
@@ -318,10 +329,10 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
         </div>
       </div>
     </div>
-    <div class="scroll-hint">
+    <button class="scroll-hint" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})" aria-label="Scroll to projects">
       <div class="scroll-line"></div>
-      scroll
-    </div>
+      scroll ↓
+    </button>
   </section>
 </div>
 
@@ -372,8 +383,8 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
           <span class="tag tag-em">Responsive</span><span class="tag tag-g">async/await</span>
         </div>
         <div style="display:flex;gap:.5rem;padding:0 1.5rem .75rem;">
-          <a href="https://nusrathfathima.github.io/weather-app" target="_blank" style="display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:6px;font-size:.72rem;font-weight:600;background:var(--violet);color:#fff;text-decoration:none;">↗ Live Demo</a>
-          <a href="https://github.com/nusrathfathima/weather-app" target="_blank" style="display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:6px;font-size:.72rem;font-weight:600;background:var(--surface2);color:var(--muted);border:1px solid var(--border);text-decoration:none;">⌥ View Code</a>
+          <a href="https://nusrathfathima.github.io/weather-app" target="_blank" style="display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:6px;font-size:.72rem;font-weight:600;background:var(--violet);color:#fff;text-decoration:none;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px) scale(1.04)';this.style.boxShadow='0 6px 16px var(--violet-glow)';this.style.filter='brightness(1.08)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.filter=''">↗ Live Demo</a>
+          <a href="https://github.com/nusrathfathima/weather-app" target="_blank" style="display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:6px;font-size:.72rem;font-weight:600;background:var(--surface2);color:var(--muted);border:1px solid var(--border);text-decoration:none;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='var(--violet)';this.style.color='var(--violet)';this.style.boxShadow='0 4px 12px var(--violet-glow)'" onmouseout="this.style.transform='';this.style.borderColor='';this.style.color='';this.style.boxShadow=''">⌥ View Code</a>
         </div>
         <div class="pc-demo">
           <div class="weather-demo">
@@ -405,8 +416,8 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
           <span class="tag tag-em">CRUD</span><span class="tag tag-g">localStorage</span>
         </div>
         <div style="display:flex;gap:.5rem;padding:0 1.5rem .75rem;">
-          <a href="https://nusrathfathima.github.io/task-manager" target="_blank" style="display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:6px;font-size:.72rem;font-weight:600;background:var(--violet);color:#fff;text-decoration:none;">↗ Live Demo</a>
-          <a href="https://github.com/nusrathfathima/task-manager" target="_blank" style="display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:6px;font-size:.72rem;font-weight:600;background:var(--surface2);color:var(--muted);border:1px solid var(--border);text-decoration:none;">⌥ View Code</a>
+          <a href="https://nusrathfathima.github.io/task-manager" target="_blank" style="display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:6px;font-size:.72rem;font-weight:600;background:var(--violet);color:#fff;text-decoration:none;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px) scale(1.04)';this.style.boxShadow='0 6px 16px var(--violet-glow)';this.style.filter='brightness(1.08)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.filter=''">↗ Live Demo</a>
+          <a href="https://github.com/nusrathfathima/task-manager" target="_blank" style="display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:6px;font-size:.72rem;font-weight:600;background:var(--surface2);color:var(--muted);border:1px solid var(--border);text-decoration:none;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='var(--violet)';this.style.color='var(--violet)';this.style.boxShadow='0 4px 12px var(--violet-glow)'" onmouseout="this.style.transform='';this.style.borderColor='';this.style.color='';this.style.boxShadow=''">⌥ View Code</a>
         </div>
         <div class="pc-demo">
           <div class="task-demo">
