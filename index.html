@@ -121,6 +121,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 0;background:v
 .section-title{font-family:'Fraunces',serif;font-size:clamp(1.8rem,4vw,2.75rem);font-weight:700;letter-spacing:-.025em;margin-bottom:.9rem;line-height:1.1;}
 .section-body{color:var(--muted);max-width:500px;line-height:1.8;margin-bottom:3rem;}
 .divider{height:1px;background:var(--border);}
+/* SECTION CONNECTOR — visual flow cue */
+.connector{display:flex;flex-direction:column;align-items:center;gap:0;padding:1.5rem 0;position:relative;z-index:1;}
+.connector-line{width:2px;height:40px;background:linear-gradient(to bottom,transparent,var(--border2));border-radius:99px;}
+.connector-dot{width:32px;height:32px;border-radius:50%;background:var(--surface);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.85rem;color:var(--violet);margin:.25rem 0;transition:all .3s;cursor:pointer;}
+.connector-dot:hover{border-color:var(--violet);box-shadow:0 0 16px var(--violet-glow);transform:scale(1.1);}
+.connector-line.bottom{background:linear-gradient(to bottom,var(--border2),transparent);}
+.connector-label{font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--subtle);margin-top:.5rem;animation:fadepulse 3s ease infinite;}
+@keyframes fadepulse{0%,100%{opacity:.5;}50%{opacity:1;}}
 
 /* PROJECTS */
 .projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;}
@@ -363,7 +371,12 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
   </div>
 </div>
 
-<div class="divider"></div>
+<div class="connector">
+  <div class="connector-line"></div>
+  <button class="connector-dot" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})" aria-label="Go to projects">↓</button>
+  <div class="connector-line bottom"></div>
+  <div class="connector-label">Explore my work</div>
+</div>
 
 <div class="container">
   <section class="section" id="projects">
@@ -443,7 +456,12 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
   </section>
 </div>
 
-<div class="divider"></div>
+<div class="connector">
+  <div class="connector-line"></div>
+  <button class="connector-dot" onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'})" aria-label="Go to skills">↓</button>
+  <div class="connector-line bottom"></div>
+  <div class="connector-label">See my skills</div>
+</div>
 
 <div class="container">
   <section class="section" id="skills">
@@ -478,7 +496,12 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
   </section>
 </div>
 
-<div class="divider"></div>
+<div class="connector">
+  <div class="connector-line"></div>
+  <button class="connector-dot" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})" aria-label="Go to about">↓</button>
+  <div class="connector-line bottom"></div>
+  <div class="connector-label">Get to know me</div>
+</div>
 
 <div class="container">
   <section class="section" id="about">
@@ -530,7 +553,12 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
   </section>
 </div>
 
-<div class="divider"></div>
+<div class="connector">
+  <div class="connector-line"></div>
+  <button class="connector-dot" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" aria-label="Go to contact">↓</button>
+  <div class="connector-line bottom"></div>
+  <div class="connector-label">Let's connect</div>
+</div>
 
 <div class="container">
   <section class="section" id="contact">
@@ -619,6 +647,16 @@ function render(){
   document.getElementById('tSum').textContent=tasks.length?`${done}/${tasks.length} done`:'';
 }
 render();
+
+/* SCROLL TO TOP ON REFRESH */
+if('scrollRestoration' in history){history.scrollRestoration='manual';}
+window.addEventListener('beforeunload',function(){window.scrollTo(0,0);});
+window.addEventListener('load',function(){
+  if(window.location.hash){
+    history.replaceState(null,null,' ');
+  }
+  window.scrollTo(0,0);
+});
 
 /* THEME TOGGLE */
 function toggleTheme(){
