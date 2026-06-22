@@ -51,7 +51,8 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 0;background:var(--nav-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background .3s;}
 .nav-inner{max-width:1080px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;}
-.logo{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;background:var(--hero-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.logo{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;background:var(--hero-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none;cursor:pointer;transition:opacity .2s;}
+.logo:hover{opacity:.7;}
 .nav-links{display:flex;gap:.2rem;list-style:none;}
 .nav-links a{text-decoration:none;color:var(--muted);font-size:.82rem;font-weight:500;padding:.4rem .8rem;border-radius:6px;transition:all .2s var(--ease);}
 .nav-links a:hover{color:var(--text);background:var(--surface2);}
@@ -272,7 +273,7 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
 
 <nav>
   <div class="nav-inner">
-    <div class="logo">Nusrath Fathima</div>
+    <a href="#" class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Nusrath Fathima</a>
     <ul class="nav-links">
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -383,7 +384,7 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
           <span class="tag tag-em">Responsive</span><span class="tag tag-g">async/await</span>
         </div>
         <div style="display:flex;gap:.5rem;padding:0 1.5rem .75rem;">
-          <a href="https://nusrathfathima.github.io/weather-app" target="_blank" style="display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:6px;font-size:.72rem;font-weight:600;background:var(--violet);color:#fff;text-decoration:none;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px) scale(1.04)';this.style.boxShadow='0 6px 16px var(--violet-glow)';this.style.filter='brightness(1.08)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.filter=''">↗ Live Demo</a>
+          <a href="https://nusrathfathima.github.io/weather-app" target="_blank" style="display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:6px;font-size:.72rem;font-weight:600;background:var(--violet);color:#fff;text-decoration:none;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px) scale(1.04)';this.style.boxShadow='0 6px 16px var(--violet-glow)';this.style.filter='brightness(1.08)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.filter=''">↗ Explore Project</a>
           <a href="https://github.com/nusrathfathima/weather-app" target="_blank" style="display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:6px;font-size:.72rem;font-weight:600;background:var(--surface2);color:var(--muted);border:1px solid var(--border);text-decoration:none;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='var(--violet)';this.style.color='var(--violet)';this.style.boxShadow='0 4px 12px var(--violet-glow)'" onmouseout="this.style.transform='';this.style.borderColor='';this.style.color='';this.style.boxShadow=''">⌥ View Code</a>
         </div>
         <div class="pc-demo">
@@ -416,7 +417,7 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
           <span class="tag tag-em">CRUD</span><span class="tag tag-g">localStorage</span>
         </div>
         <div style="display:flex;gap:.5rem;padding:0 1.5rem .75rem;">
-          <a href="https://nusrathfathima.github.io/task-manager" target="_blank" style="display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:6px;font-size:.72rem;font-weight:600;background:var(--violet);color:#fff;text-decoration:none;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px) scale(1.04)';this.style.boxShadow='0 6px 16px var(--violet-glow)';this.style.filter='brightness(1.08)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.filter=''">↗ Live Demo</a>
+          <a href="https://nusrathfathima.github.io/task-manager" target="_blank" style="display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:6px;font-size:.72rem;font-weight:600;background:var(--violet);color:#fff;text-decoration:none;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px) scale(1.04)';this.style.boxShadow='0 6px 16px var(--violet-glow)';this.style.filter='brightness(1.08)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.filter=''">↗ Explore Project</a>
           <a href="https://github.com/nusrathfathima/task-manager" target="_blank" style="display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:6px;font-size:.72rem;font-weight:600;background:var(--surface2);color:var(--muted);border:1px solid var(--border);text-decoration:none;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='var(--violet)';this.style.color='var(--violet)';this.style.boxShadow='0 4px 12px var(--violet-glow)'" onmouseout="this.style.transform='';this.style.borderColor='';this.style.color='';this.style.boxShadow=''">⌥ View Code</a>
         </div>
         <div class="pc-demo">
