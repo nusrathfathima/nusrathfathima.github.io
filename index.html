@@ -148,6 +148,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 0;background:v
 .w-btn{padding:.5rem 1rem;background:var(--violet);color:#fff;border:none;border-radius:var(--r-sm);font-weight:600;font-size:.75rem;cursor:pointer;font-family:inherit;white-space:nowrap;transition:background .2s;}
 .w-btn:hover{background:var(--violet-dim);transform:translateY(-1px) scale(1.03);box-shadow:0 4px 12px var(--violet-glow);}
 .w-btn:active{transform:scale(.97);}
+.w-unit{display:flex;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:var(--r-sm);overflow:hidden;flex-shrink:0;}
+.w-unit-btn{padding:.5rem .6rem;font-size:.72rem;font-weight:700;background:transparent;border:none;color:rgba(255,255,255,.6);cursor:pointer;font-family:inherit;transition:all .15s;}
+.w-unit-btn.active{background:#fff;color:var(--w-bg,#1e1b4b);color:#1e3a5f;}
 .w-main{text-align:center;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.2rem;}
 .w-icon{font-size:3rem;line-height:1;}
 .w-temp{font-family:'Fraunces',serif;font-size:2.75rem;font-weight:700;color:#fff;line-height:1;margin-top:.25rem;}
@@ -168,6 +171,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 0;background:v
 .t-add{padding:.5rem 1rem;background:var(--violet);color:#fff;border:none;border-radius:var(--r-sm);font-weight:600;font-size:.75rem;cursor:pointer;font-family:inherit;white-space:nowrap;transition:background .2s;}
 .t-add:hover{background:var(--violet-dim);transform:translateY(-1px) scale(1.03);box-shadow:0 4px 12px var(--violet-glow);}
 .t-add:active{transform:scale(.97);}
+.t-suggest{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;}
+.t-sg-lbl{font-size:.66rem;font-weight:600;color:var(--subtle);text-transform:uppercase;letter-spacing:.04em;}
+.t-sg{padding:.3rem .6rem;border-radius:99px;font-size:.7rem;font-weight:500;background:var(--surface2);border:1px solid var(--border);color:var(--muted);cursor:pointer;font-family:inherit;transition:all .18s;}
+.t-sg:hover{border-color:var(--violet);color:var(--violet);background:var(--violet-glow);transform:translateY(-1px);}
+.t-sg:active{transform:scale(.96);}
 .t-filters{display:flex;gap:.3rem;}
 .t-filter{padding:.28rem .7rem;border-radius:99px;font-size:.68rem;font-weight:600;border:1px solid var(--border);background:transparent;color:var(--subtle);cursor:pointer;font-family:inherit;transition:all .2s;}
 .t-filter:hover{border-color:var(--violet);color:var(--violet);background:var(--violet-glow);}
@@ -183,7 +191,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 0;background:v
 .t-text{flex:1;font-size:.78rem;color:var(--text);}
 .t-text.done{text-decoration:line-through;color:var(--subtle);}
 .t-del{color:var(--border2);cursor:pointer;font-size:.85rem;border:none;background:none;line-height:1;transition:color .15s;}
-.t-del:hover{color:var(--rose);}
+.t-del:hover{color:#fff;background:var(--rose);transform:scale(1.1);}
 .t-empty{text-align:center;color:var(--subtle);font-size:.75rem;padding:1.5rem;}
 .t-foot{display:flex;justify-content:space-between;align-items:center;}
 .t-sum{font-size:.68rem;color:var(--subtle);}
@@ -392,6 +400,10 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
             <div class="w-search">
               <input type="text" id="cityInput" placeholder="Try: London, Tokyo, Mumbai…"/>
               <button class="w-btn" onclick="fetchWeather()">Search</button>
+              <div class="w-unit">
+                <button class="w-unit-btn active" id="pcBtnC" onclick="pcSetUnit('c')">°C</button>
+                <button class="w-unit-btn" id="pcBtnF" onclick="pcSetUnit('f')">°F</button>
+              </div>
             </div>
             <div class="w-main" id="wMain">
               <div class="w-icon">🌍</div>
@@ -425,6 +437,12 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
             <div class="t-row">
               <input type="text" class="t-in" id="taskInput" placeholder="What needs doing?" onkeydown="if(event.key==='Enter')addTask()"/>
               <button class="t-add" onclick="addTask()">+ Add</button>
+            </div>
+            <div class="t-suggest">
+              <span class="t-sg-lbl">Quick add:</span>
+              <button class="t-sg" onclick="quickAdd('Reply to emails')">✉️ Reply to emails</button>
+              <button class="t-sg" onclick="quickAdd('Team standup')">👥 Team standup</button>
+              <button class="t-sg" onclick="quickAdd('Workout')">💪 Workout</button>
             </div>
             <div class="t-filters">
               <button class="t-filter active" onclick="setFilter('all',this)">All</button>
@@ -567,6 +585,24 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 const WI={'0':'☀️','1':'🌤️','2':'⛅','3':'☁️','45':'🌫️','48':'🌫️','51':'🌦️','53':'🌦️','55':'🌧️','61':'🌧️','63':'🌧️','65':'🌧️','71':'🌨️','73':'🌨️','75':'❄️','80':'🌦️','81':'🌧️','82':'⛈️','95':'⛈️','96':'⛈️','99':'⛈️'};
 const WD={'0':'Clear sky','1':'Mainly clear','2':'Partly cloudy','3':'Overcast','45':'Foggy','48':'Icy fog','51':'Light drizzle','53':'Drizzle','55':'Heavy drizzle','61':'Light rain','63':'Rain','65':'Heavy rain','71':'Light snow','73':'Snow','75':'Heavy snow','80':'Rain showers','81':'Heavy showers','82':'Violent showers','95':'Thunderstorm','96':'Thunderstorm + hail','99':'Thunderstorm + heavy hail'};
 
+let pcUnit='c';
+let pcLast=null; // {temp,feel,code,name,country,hum,wind}
+function pcCvt(c){return pcUnit==='c'?Math.round(c):Math.round(c*9/5+32);}
+function pcSym(){return pcUnit==='c'?'°C':'°F';}
+function pcSetUnit(u){
+  pcUnit=u;
+  document.getElementById('pcBtnC').classList.toggle('active',u==='c');
+  document.getElementById('pcBtnF').classList.toggle('active',u==='f');
+  if(pcLast)pcRender();
+}
+function pcRender(){
+  const d=pcLast;if(!d)return;
+  const m=document.getElementById('wMain');
+  m.innerHTML=`<div class="w-icon">${WI[d.code]||'🌡️'}</div><div class="w-temp">${pcCvt(d.temp)}${pcSym()}</div><div class="w-city">${d.name}, ${d.country}</div><div class="w-desc">${WD[d.code]||'Unknown conditions'}</div>`;
+  document.getElementById('wHum').textContent=(d.hum==='—'?'—':d.hum+'%');
+  document.getElementById('wWind').textContent=Math.round(d.wind)+' km/h';
+  document.getElementById('wFeel').textContent=(d.feel==='—'?'—':pcCvt(d.feel)+pcSym());
+}
 async function fetchWeather(){
   const city=document.getElementById('cityInput').value.trim();
   if(!city)return;
@@ -581,13 +617,15 @@ async function fetchWeather(){
     const w=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=relativehumidity_2m,apparent_temperature&timezone=auto&forecast_days=1`);
     const wd=await w.json();
     const cw=wd.current_weather;
-    const code=String(cw.weathercode);
-    const hum=wd.hourly?.relativehumidity_2m?.[0]??'—';
-    const feel=wd.hourly?.apparent_temperature?.[0]??'—';
-    m.innerHTML=`<div class="w-icon">${WI[code]||'🌡️'}</div><div class="w-temp">${Math.round(cw.temperature)}°C</div><div class="w-city">${name}, ${country}</div><div class="w-desc">${WD[code]||'Unknown conditions'}</div>`;
-    document.getElementById('wHum').textContent=hum+'%';
-    document.getElementById('wWind').textContent=Math.round(cw.windspeed)+' km/h';
-    document.getElementById('wFeel').textContent=Math.round(feel)+'°C';
+    pcLast={
+      temp:cw.temperature,
+      feel:wd.hourly?.apparent_temperature?.[0]??'—',
+      code:String(cw.weathercode),
+      name,country,
+      hum:wd.hourly?.relativehumidity_2m?.[0]??'—',
+      wind:cw.windspeed
+    };
+    pcRender();
   }catch(err){
     m.innerHTML=`<div class="w-msg" style="color:#fb7185">⚠ ${err.message}</div>`;
   }
@@ -595,18 +633,21 @@ async function fetchWeather(){
 document.getElementById('cityInput').addEventListener('keydown',e=>{if(e.key==='Enter')fetchWeather();});
 
 /* TASKS */
-let tasks=JSON.parse(localStorage.getItem('nf_v2')||'null')||[
-  {id:1,text:'Build portfolio website',done:true},
-  {id:2,text:'Add Weather App project',done:true},
-  {id:3,text:'Apply to junior dev roles',done:false},
-  {id:4,text:'Practice React hooks daily',done:false},
+let tasks=JSON.parse(localStorage.getItem('nf_v3')||'null')||[
+  {id:1,text:'Prepare slides for Monday meeting',done:false},
+  {id:2,text:'Buy groceries for the week',done:false},
+  {id:3,text:'Call the dentist to book appointment',done:false},
+  {id:4,text:'Morning run — 5km',done:true},
 ];
 let filter='all',uid=Date.now();
-function save(){localStorage.setItem('nf_v2',JSON.stringify(tasks));}
+function save(){localStorage.setItem('nf_v3',JSON.stringify(tasks));}
 function addTask(){
   const inp=document.getElementById('taskInput');
   const text=inp.value.trim();if(!text)return;
   tasks.unshift({id:uid++,text,done:false});inp.value='';save();render();
+}
+function quickAdd(text){
+  tasks.unshift({id:uid++,text,done:false});save();render();
 }
 function toggle(id){tasks=tasks.map(t=>t.id===id?{...t,done:!t.done}:t);save();render();}
 function del(id){tasks=tasks.filter(t=>t.id!==id);save();render();}
