@@ -138,6 +138,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 0;background:v
 .tag-am{background:rgba(245,158,11,.1);color:#fbbf24;border-color:rgba(245,158,11,.2);}
 .tag-g{background:var(--surface2);color:var(--muted);border-color:var(--border);}
 .pc-demo{margin:0 1.25rem 1.25rem;border-radius:10px;overflow:hidden;border:1px solid var(--border);}
+/* Mealody live embed */
+.pc-embed{margin:0 1.25rem 1.25rem;border-radius:10px;overflow:hidden;border:1px solid var(--border);position:relative;background:#fff8ee;}
+.pc-embed-bar{display:flex;align-items:center;gap:.5rem;padding:.5rem .85rem;background:var(--surface2);border-bottom:1px solid var(--border);}
+.pc-embed-dots{display:flex;gap:.35rem;}
+.pc-embed-dots span{width:9px;height:9px;border-radius:50%;display:block;}
+.pc-embed-url{font-size:.68rem;color:var(--muted);background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:.15rem .6rem;flex:1;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.pc-embed-open{font-size:.66rem;font-weight:600;color:var(--violet);text-decoration:none;white-space:nowrap;}
+.pc-embed iframe{width:100%;height:620px;border:none;display:block;background:#fff8ee;}
 
 /* WEATHER DEMO */
 .weather-demo{background:var(--w-bg);padding:1.25rem;min-height:295px;display:flex;flex-direction:column;gap:.85rem;}
@@ -458,6 +466,30 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
         </div>
       </div>
 
+      <div class="project-card reveal" style="grid-column:1/-1;">
+        <div class="pc-head">
+          <div class="pc-icon">🍳</div>
+          <h3>Mealody — AI Meal Planner</h3>
+          <p>An AI-powered weekly meal planner that builds a full week of breakfast, lunch, and dinner around your ingredients, mood, leftovers, and cuisine. Powered by the Claude API through a secure serverless backend.</p>
+        </div>
+        <div class="pc-tags">
+          <span class="tag">AI / Claude API</span><span class="tag tag-am">Serverless</span>
+          <span class="tag tag-em">Vercel</span><span class="tag tag-g">Full-Stack</span>
+        </div>
+        <div style="display:flex;gap:.5rem;padding:0 1.5rem .75rem;">
+          <a href="https://mealody-six.vercel.app" target="_blank" style="display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:6px;font-size:.72rem;font-weight:600;background:var(--violet);color:#fff;text-decoration:none;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px) scale(1.04)';this.style.boxShadow='0 6px 16px var(--violet-glow)';this.style.filter='brightness(1.08)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.filter=''">↗ Explore Project</a>
+          <a href="https://github.com/nusrathfathima/mealody" target="_blank" style="display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:6px;font-size:.72rem;font-weight:600;background:var(--surface2);color:var(--muted);border:1px solid var(--border);text-decoration:none;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='var(--violet)';this.style.color='var(--violet)';this.style.boxShadow='0 4px 12px var(--violet-glow)'" onmouseout="this.style.transform='';this.style.borderColor='';this.style.color='';this.style.boxShadow=''">⌥ View Code</a>
+        </div>
+        <div class="pc-embed">
+          <div class="pc-embed-bar">
+            <div class="pc-embed-dots"><span style="background:#ff5f57"></span><span style="background:#febc2e"></span><span style="background:#28c840"></span></div>
+            <div class="pc-embed-url">mealody-six.vercel.app</div>
+            <a href="https://mealody-six.vercel.app" target="_blank" class="pc-embed-open">Open ↗</a>
+          </div>
+          <iframe src="https://mealody-six.vercel.app" title="Mealody — live AI meal planner" loading="lazy"></iframe>
+        </div>
+      </div>
+
     </div>
   </section>
 </div>
@@ -533,6 +565,7 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
             <div class="rp-lbl">Projects</div>
             <div class="rp-item"><div class="t">Weather App</div><div class="m">Open-Meteo API · Geolocation · 5-day forecast</div></div>
             <div class="rp-item"><div class="t">Task Manager</div><div class="m">Priorities · Due dates · Progress tracking</div></div>
+            <div class="rp-item"><div class="t">Mealody (AI)</div><div class="m">Claude API · Serverless · Vercel</div></div>
           </div>
           <div class="rp-sec">
             <div class="rp-lbl">Skills</div>
