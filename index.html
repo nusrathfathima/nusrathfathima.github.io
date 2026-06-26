@@ -128,7 +128,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 0;background:v
 .project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:all .25s var(--ease);}
 .project-card:hover{border-color:var(--violet);transform:translateY(-3px);box-shadow:0 16px 48px rgba(124,109,250,.12);}
 .pc-head{padding:1.5rem 1.5rem 1rem;}
-.pc-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:1rem;background:var(--surface2);border:1px solid var(--border);}
+.pc-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;background:var(--surface2);border:1px solid var(--border);flex-shrink:0;}
+.pc-titlerow{display:flex;align-items:center;gap:.85rem;margin-bottom:.75rem;}
+.pc-titlerow h3{margin-bottom:0!important;}
 .pc-head h3{font-size:1rem;font-weight:700;margin-bottom:.3rem;}
 .pc-head p{font-size:.8rem;color:var(--muted);line-height:1.6;}
 .pc-tags{display:flex;gap:.4rem;flex-wrap:wrap;padding:0 1.5rem .75rem;}
@@ -310,7 +312,7 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
         <div class="hero-badge"><span class="badge-dot"></span>Open to new opportunities</div>
       </div>
       <h1 class="reveal">Hi, I'm Nusrath.<br/>I build <em>beautiful</em> things<br/>for the web.</h1>
-      <p class="hero-sub reveal">Frontend developer passionate about <strong>React</strong>, responsive design, and turning ideas into interfaces people actually enjoy using.</p>
+      <p class="hero-sub reveal">Frontend developer passionate about <strong>React</strong>, responsive design, and <strong>AI-powered</strong> apps — turning ideas into interfaces people actually enjoy using.</p>
       <div class="btn-group reveal">
         <a href="#projects" class="btn btn-primary">View my work ↓</a>
         <a href="#contact" class="btn btn-ghost">Get in touch</a>
@@ -342,6 +344,11 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
           <a href="#projects" class="hp-item">
             <span class="hp-icon">✅</span>
             <div class="hp-info"><div class="hp-name">Task Manager</div><div class="hp-tech">React · State · localStorage</div></div>
+            <span class="hp-arrow">→</span>
+          </a>
+          <a href="#projects" class="hp-item">
+            <span class="hp-icon">🍳</span>
+            <div class="hp-info"><div class="hp-name">Mealody — AI Planner</div><div class="hp-tech">Claude API · Serverless · Vercel</div></div>
             <span class="hp-arrow">→</span>
           </a>
         </div>
@@ -392,8 +399,7 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
 
       <div class="project-card reveal">
         <div class="pc-head">
-          <div class="pc-icon">🌤️</div>
-          <h3>Weather App</h3>
+          <div class="pc-titlerow"><div class="pc-icon">🌤️</div><h3>Weather App</h3></div>
           <p>A glassmorphism weather dashboard with auto-location, a 5-day forecast, hourly outlook, pinned favorite cities, and animated skies that shift with conditions.</p>
         </div>
         <div class="pc-tags">
@@ -429,8 +435,7 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
 
       <div class="project-card reveal">
         <div class="pc-head">
-          <div class="pc-icon">✅</div>
-          <h3>Task Manager</h3>
+          <div class="pc-titlerow"><div class="pc-icon">✅</div><h3>Task Manager</h3></div>
           <p>A neumorphic to-do app with priorities, categories, due dates, a live progress ring, confetti celebrations, and at-a-glance summary panels.</p>
         </div>
         <div class="pc-tags">
@@ -469,8 +474,7 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
 
       <div class="project-card reveal" style="grid-column:1/-1;">
         <div class="pc-head">
-          <div class="pc-icon">🍳</div>
-          <h3>Mealody — AI Meal Planner</h3>
+          <div class="pc-titlerow"><div class="pc-icon">🍳</div><h3>Mealody — AI Meal Planner</h3></div>
           <p>An AI-powered weekly meal planner that builds a full week of breakfast, lunch, and dinner around your ingredients, mood, leftovers, and cuisine. Powered by the Claude API through a secure serverless backend.</p>
         </div>
         <div class="pc-tags">
