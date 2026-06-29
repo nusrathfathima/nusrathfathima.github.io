@@ -416,8 +416,8 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
               <input type="text" id="cityInput" placeholder="Try: London, Tokyo, Mumbai…"/>
               <button class="w-btn" onclick="fetchWeather()">Search</button>
               <div class="w-unit">
-                <button class="w-unit-btn active" id="pcBtnC" onclick="pcSetUnit('c')">°C</button>
-                <button class="w-unit-btn" id="pcBtnF" onclick="pcSetUnit('f')">°F</button>
+                <button class="w-unit-btn" id="pcBtnC" onclick="pcSetUnit('c')">°C</button>
+                <button class="w-unit-btn active" id="pcBtnF" onclick="pcSetUnit('f')">°F</button>
               </div>
             </div>
             <div class="w-main" id="wMain">
@@ -623,7 +623,7 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 const WI={'0':'☀️','1':'🌤️','2':'⛅','3':'☁️','45':'🌫️','48':'🌫️','51':'🌦️','53':'🌦️','55':'🌧️','61':'🌧️','63':'🌧️','65':'🌧️','71':'🌨️','73':'🌨️','75':'❄️','80':'🌦️','81':'🌧️','82':'⛈️','95':'⛈️','96':'⛈️','99':'⛈️'};
 const WD={'0':'Clear sky','1':'Mainly clear','2':'Partly cloudy','3':'Overcast','45':'Foggy','48':'Icy fog','51':'Light drizzle','53':'Drizzle','55':'Heavy drizzle','61':'Light rain','63':'Rain','65':'Heavy rain','71':'Light snow','73':'Snow','75':'Heavy snow','80':'Rain showers','81':'Heavy showers','82':'Violent showers','95':'Thunderstorm','96':'Thunderstorm + hail','99':'Thunderstorm + heavy hail'};
 
-let pcUnit='c';
+let pcUnit='f';
 let pcLast=null; // {temp,feel,code,name,country,hum,wind}
 function pcCvt(c){return pcUnit==='c'?Math.round(c):Math.round(c*9/5+32);}
 function pcSym(){return pcUnit==='c'?'°C':'°F';}
