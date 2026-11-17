@@ -14,6 +14,13 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Nusrath Fathima</title>
+<meta name="description" content="Nusrath Fathima — frontend and full-stack developer. Projects include Mealody (AI meal planner) and Jumble (React + Spring Boot activity recommender)."/>
+<!-- FAVICON — NF monogram, black & gold (version 8) -->
+<link rel="icon" href="favicon.ico" sizes="any"/>
+<link rel="icon" href="nf-icon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png"/>
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -167,6 +174,66 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 0;background:v
 .ml-feat b{display:block;font-size:.82rem;color:var(--text);margin-bottom:.05rem;}
 .ml-feat span{font-size:.72rem;color:var(--muted);line-height:1.4;}
 @media(max-width:760px){.ml-showcase{grid-template-columns:1fr;}}
+
+/* PROJECT ACTION BUTTONS (replaces the old inline styles + onmouseover handlers) */
+.pc-actions{display:flex;gap:.5rem;flex-wrap:wrap;padding:0 1.5rem .75rem;}
+.pc-btn{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:6px;font-size:.72rem;font-weight:600;text-decoration:none;transition:all .2s;background:var(--violet);color:#fff;border:1px solid var(--violet);}
+.pc-btn:hover{transform:translateY(-2px) scale(1.04);box-shadow:0 6px 16px var(--violet-glow);filter:brightness(1.08);}
+.pc-btn-ghost{background:var(--surface2);color:var(--muted);border-color:var(--border);}
+.pc-btn-ghost:hover{transform:translateY(-2px);border-color:var(--violet);color:var(--violet);box-shadow:0 4px 12px var(--violet-glow);filter:none;}
+.pc-btn:focus-visible{outline:2px solid var(--violet);outline-offset:2px;}
+
+/* PROJECT METRICS */
+.pc-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem;padding:0 1.5rem 1rem;}
+.metric{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:.6rem .7rem;min-width:0;}
+.metric b{display:block;font-family:'Fraunces',serif;font-size:1.15rem;font-weight:700;color:var(--violet);line-height:1.1;}
+.metric span{display:block;font-size:.66rem;color:var(--muted);line-height:1.35;margin-top:.2rem;}
+.metric-usage b{color:var(--amber);}
+@media(max-width:420px){.pc-metrics{grid-template-columns:1fr;}.metric{display:flex;align-items:baseline;gap:.6rem;}.metric b{white-space:nowrap;}.metric span{margin-top:0;}}
+
+/* JUMBLE SHOWCASE — "Garden Party" palette so it reads as its own product, not Mealody */
+.jb-poster{display:block;text-decoration:none;border-radius:12px;overflow:hidden;border:1px solid var(--border);box-shadow:0 10px 30px rgba(0,0,0,.1);background:#fffaf0;transition:transform .25s ease,box-shadow .25s ease;}
+.jb-poster:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(63,157,91,.25);}
+.jb-poster-bar{display:flex;align-items:center;gap:.4rem;padding:.55rem .8rem;background:#e8f3e4;border-bottom:1px solid #d3e8cc;}
+.jb-poster-url{margin-left:.5rem;font-size:.64rem;color:#5f8a5a;background:#fffaf0;border:1px solid #d3e8cc;border-radius:5px;padding:.12rem .6rem;}
+.jb-poster-body{position:relative;padding:1.4rem 1.4rem 1.6rem;background:radial-gradient(circle at 85% -10%,rgba(255,179,138,.35),transparent 55%),radial-gradient(circle at -10% 110%,rgba(122,196,120,.3),transparent 55%),#fffaf0;}
+.jb-bunting{display:flex;gap:.35rem;margin-bottom:.9rem;}
+.jb-bunting i{width:14px;height:12px;clip-path:polygon(0 0,100% 0,50% 100%);display:block;}
+.jb-brand{display:flex;align-items:center;gap:.4rem;font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;color:#2f7d46;}
+.jb-tagline{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;color:#2b3a2e;margin:.15rem 0 1rem;line-height:1.25;}
+.jb-tagline em{font-style:normal;color:#e8794a;}
+.jb-card{background:#fff;border:1px solid #e9e1cf;border-radius:10px;padding:.8rem .9rem;transform:rotate(-1.2deg);box-shadow:0 6px 16px rgba(43,58,46,.08);position:relative;}
+.jb-card::before{content:"";position:absolute;top:-8px;left:50%;width:54px;height:16px;margin-left:-27px;background:rgba(255,179,138,.65);transform:rotate(2deg);}
+.jb-pick{font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#e8794a;}
+.jb-title{font-family:'Fraunces',serif;font-size:.95rem;font-weight:700;color:#2b3a2e;margin:.15rem 0 .4rem;}
+.jb-meta{display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:.6rem;}
+.jb-meta span{font-size:.6rem;font-weight:600;color:#2f7d46;background:#e8f3e4;border-radius:99px;padding:.15rem .5rem;}
+.jb-rate{display:flex;gap:.35rem;}
+.jb-rate span{flex:1;text-align:center;font-size:.62rem;font-weight:700;padding:.3rem .2rem;border-radius:6px;border:1px solid #e9e1cf;color:#2b3a2e;background:#fffaf0;}
+.jb-rate span:first-child{background:#2f7d46;border-color:#2f7d46;color:#fff;}
+
+/* RESUME DOWNLOAD */
+.rp-download{display:flex;align-items:center;justify-content:center;gap:.45rem;margin-top:1rem;padding:.6rem 1rem;border-radius:var(--r-sm);background:var(--violet);color:#fff;font-size:.8rem;font-weight:600;text-decoration:none;transition:all .2s var(--ease);}
+.rp-download:hover{background:var(--violet-dim);transform:translateY(-2px);box-shadow:0 6px 18px var(--violet-glow);}
+.resume-link[hidden]{display:none!important;}
+
+/* CONTACT FORM */
+.c-form{position:relative;max-width:520px;margin:0 auto 2rem;display:grid;grid-template-columns:1fr 1fr;gap:.75rem;text-align:left;}
+.c-field{display:flex;flex-direction:column;gap:.35rem;}
+.c-field-full{grid-column:1/-1;}
+.c-field label{font-size:.72rem;font-weight:600;color:var(--contact-text);opacity:.85;}
+.c-field input,.c-field textarea{width:100%;padding:.7rem .85rem;border-radius:var(--r-sm);border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);color:var(--contact-text);font-family:inherit;font-size:.875rem;outline:none;transition:border-color .2s,box-shadow .2s;}
+.c-field textarea{min-height:120px;resize:vertical;}
+.c-field input::placeholder,.c-field textarea::placeholder{color:var(--contact-text);opacity:.4;}
+.c-field input:focus,.c-field textarea:focus{border-color:var(--violet);box-shadow:0 0 0 3px var(--violet-glow);}
+.c-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
+.c-submit{grid-column:1/-1;justify-content:center;border:none;cursor:pointer;font-family:inherit;}
+.c-submit:disabled{opacity:.6;cursor:wait;transform:none;}
+.c-status{grid-column:1/-1;font-size:.8rem;text-align:center;min-height:1.2em;color:var(--contact-text);}
+.c-status.ok{color:#34d399;}
+.c-status.err{color:#fb7185;}
+.c-or{position:relative;font-size:.72rem;color:var(--contact-text);opacity:.6;margin-bottom:1rem;}
+@media(max-width:600px){.c-form{grid-template-columns:1fr;}}
 
 /* WEATHER DEMO */
 .weather-demo{background:var(--w-bg);padding:1.25rem;height:340px;overflow-y:auto;overflow-x:hidden;display:flex;flex-direction:column;gap:.85rem;max-width:100%;}
@@ -357,6 +424,7 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
       <div class="btn-group reveal">
         <a href="#projects" class="btn btn-primary">View my work ↓</a>
         <a href="#contact" class="btn btn-ghost">Get in touch</a>
+        <a href="resume.pdf" download="Nusrath-Fathima-Resume.pdf" class="btn btn-ghost resume-link" data-track="hero">⬇ Résumé</a>
       </div>
       <div class="stack-row reveal">
         <span class="stack-lbl">Stack</span>
@@ -369,7 +437,7 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
     </div>
     <div class="hero-right reveal">
       <div class="hero-stats">
-        <div class="stat-card"><div class="sn">3</div><div class="sl">Live projects deployed</div></div>
+        <div class="stat-card"><div class="sn">4</div><div class="sl">Live projects deployed</div></div>
         <div class="stat-card"><div class="sn">MS</div><div class="sl">Information Technology</div></div>
         <div class="stat-card"><div class="sn">100%</div><div class="sl">Responsive design</div></div>
         <div class="stat-card"><div class="sn">∞</div><div class="sl">Passion for learning</div></div>
@@ -392,6 +460,11 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
             <div class="hp-info"><div class="hp-name">Mealody — AI Planner</div><div class="hp-tech">Claude API · Serverless · Vercel</div></div>
             <span class="hp-arrow">→</span>
           </a>
+          <a href="#jumble" class="hp-item">
+            <span class="hp-icon">🌱</span>
+            <div class="hp-info"><div class="hp-name">Jumble — Kids' Activity Picker</div><div class="hp-tech">React · Spring Boot · PostgreSQL</div></div>
+            <span class="hp-arrow">→</span>
+          </a>
         </div>
       </div>
     </div>
@@ -408,7 +481,7 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
   <section class="section" id="projects">
     <div class="eyebrow reveal">Featured projects</div>
     <h2 class="section-title reveal">Things I've built</h2>
-    <p class="section-body reveal">Two interactive demos — live and working right here. Each built with real APIs and React patterns.</p>
+    <p class="section-body reveal">Two interactive demos you can use right here, plus two full-stack apps — one AI-powered, one with a Java backend and database.</p>
     <div class="projects-grid">
 
       <div class="project-card reveal">
@@ -420,9 +493,14 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
           <span class="tag">Live API</span><span class="tag tag-am">Geolocation</span>
           <span class="tag tag-em">5-Day Forecast</span><span class="tag tag-g">Glassmorphism</span>
         </div>
-        <div style="display:flex;gap:.5rem;padding:0 1.5rem .75rem;">
-          <a href="https://nusrathfathima.github.io/weather-app" target="_blank" style="display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:6px;font-size:.72rem;font-weight:600;background:var(--violet);color:#fff;text-decoration:none;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px) scale(1.04)';this.style.boxShadow='0 6px 16px var(--violet-glow)';this.style.filter='brightness(1.08)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.filter=''">↗ Explore Project</a>
-          <a href="https://github.com/nusrathfathima/weather-app" target="_blank" style="display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:6px;font-size:.72rem;font-weight:600;background:var(--surface2);color:var(--muted);border:1px solid var(--border);text-decoration:none;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='var(--violet)';this.style.color='var(--violet)';this.style.boxShadow='0 4px 12px var(--violet-glow)'" onmouseout="this.style.transform='';this.style.borderColor='';this.style.color='';this.style.boxShadow=''">⌥ View Code</a>
+        <div class="pc-metrics">
+          <div class="metric"><b>0</b><span>API keys exposed: keyless Open-Meteo</span></div>
+          <div class="metric"><b>2-step</b><span>chained fetch: geocode → forecast</span></div>
+          <div class="metric"><b>0 refetch</b><span>°C/°F switch re-renders cached data</span></div>
+        </div>
+        <div class="pc-actions">
+          <a href="https://nusrathfathima.github.io/weather-app" target="_blank" rel="noopener" class="pc-btn">↗ Explore Project</a>
+          <a href="https://github.com/nusrathfathima/weather-app" target="_blank" rel="noopener" class="pc-btn pc-btn-ghost">⌥ View Code</a>
         </div>
         <div class="pc-demo">
           <div class="weather-demo">
@@ -456,9 +534,14 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
           <span class="tag">Neumorphism</span><span class="tag tag-rose">Priorities</span>
           <span class="tag tag-em">Due Dates</span><span class="tag tag-g">localStorage</span>
         </div>
-        <div style="display:flex;gap:.5rem;padding:0 1.5rem .75rem;">
-          <a href="https://nusrathfathima.github.io/task-manager" target="_blank" style="display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:6px;font-size:.72rem;font-weight:600;background:var(--violet);color:#fff;text-decoration:none;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px) scale(1.04)';this.style.boxShadow='0 6px 16px var(--violet-glow)';this.style.filter='brightness(1.08)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.filter=''">↗ Explore Project</a>
-          <a href="https://github.com/nusrathfathima/task-manager" target="_blank" style="display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:6px;font-size:.72rem;font-weight:600;background:var(--surface2);color:var(--muted);border:1px solid var(--border);text-decoration:none;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='var(--violet)';this.style.color='var(--violet)';this.style.boxShadow='0 4px 12px var(--violet-glow)'" onmouseout="this.style.transform='';this.style.borderColor='';this.style.color='';this.style.boxShadow=''">⌥ View Code</a>
+        <div class="pc-metrics">
+          <div class="metric"><b>0</b><span>server calls: runs fully in the browser</span></div>
+          <div class="metric"><b>3</b><span>filter views: all, active, done</span></div>
+          <div class="metric"><b>100%</b><span>of tasks survive a page reload</span></div>
+        </div>
+        <div class="pc-actions">
+          <a href="https://nusrathfathima.github.io/task-manager" target="_blank" rel="noopener" class="pc-btn">↗ Explore Project</a>
+          <a href="https://github.com/nusrathfathima/task-manager" target="_blank" rel="noopener" class="pc-btn pc-btn-ghost">⌥ View Code</a>
         </div>
         <div class="pc-demo">
           <div class="task-demo">
@@ -495,9 +578,17 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
           <span class="tag">AI / Claude API</span><span class="tag tag-am">Serverless</span>
           <span class="tag tag-em">Vercel</span><span class="tag tag-rose">Recipe Generation</span><span class="tag tag-g">Full-Stack</span>
         </div>
-        <div style="display:flex;gap:.5rem;padding:0 1.5rem .75rem;">
-          <a href="https://mealody.nusrathfathima.com" target="_blank" style="display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:6px;font-size:.72rem;font-weight:600;background:var(--violet);color:#fff;text-decoration:none;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px) scale(1.04)';this.style.boxShadow='0 6px 16px var(--violet-glow)';this.style.filter='brightness(1.08)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.filter=''">↗ Explore Project</a>
-          <a href="https://github.com/nusrathfathima/mealody" target="_blank" style="display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:6px;font-size:.72rem;font-weight:600;background:var(--surface2);color:var(--muted);border:1px solid var(--border);text-decoration:none;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='var(--violet)';this.style.color='var(--violet)';this.style.boxShadow='0 4px 12px var(--violet-glow)'" onmouseout="this.style.transform='';this.style.borderColor='';this.style.color='';this.style.boxShadow=''">⌥ View Code</a>
+        <div class="pc-metrics">
+          <div class="metric"><b>2 days</b><span>planned per AI call (batched requests)</span></div>
+          <div class="metric"><b>$0</b><span>for repeat recipes: cached by dish, servings &amp; diet</span></div>
+          <div class="metric"><b>≤ 8</b><span>steps per recipe: compact format keeps tokens low</span></div>
+          <!-- USAGE METRIC — uncomment and fill in from GA4 when the number is worth showing:
+          <div class="metric metric-usage"><b>500+</b><span>meal plans generated</span></div>
+          -->
+        </div>
+        <div class="pc-actions">
+          <a href="https://mealody.nusrathfathima.com" target="_blank" rel="noopener" class="pc-btn">↗ Explore Project</a>
+          <a href="https://github.com/nusrathfathima/mealody" target="_blank" rel="noopener" class="pc-btn pc-btn-ghost">⌥ View Code</a>
         </div>
         <div class="ml-showcase">
           <a class="ml-poster" href="https://mealody.nusrathfathima.com" target="_blank" rel="noopener" title="Open Mealody">
@@ -524,6 +615,56 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
             <div class="ml-feat"><span class="ml-feat-ic">🛒</span><div><b>Auto grocery lists</b><span>Consolidated shopping list built from your recipes</span></div></div>
             <div class="ml-feat"><span class="ml-feat-ic">💾</span><div><b>My Dishes library</b><span>Save favorites to reuse in future weeks</span></div></div>
             <div class="ml-feat"><span class="ml-feat-ic">🔒</span><div><b>Cost-engineered backend</b><span>Caching &amp; batching keep AI calls efficient on Vercel</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" id="jumble" style="grid-column:1/-1;">
+        <div class="pc-head">
+          <div class="pc-titlerow"><div class="pc-icon">🌱</div><h3>Jumble — Kids' Activity Recommender</h3></div>
+          <p>A full-stack app that answers "I'm bored!" with activities picked for each child. It only suggests what a family can actually do right now (right age, enough time, the supplies they have on hand, the mess they'll tolerate, and today's weather), explains why each idea was picked, and learns from every Loved / Okay / Skip rating. Built with a React frontend and a Java Spring Boot REST API backed by PostgreSQL.</p>
+        </div>
+        <div class="pc-tags">
+          <span class="tag">React</span><span class="tag tag-am">Java · Spring Boot</span>
+          <span class="tag tag-em">PostgreSQL</span><span class="tag tag-rose">REST API</span><span class="tag tag-g">Full-Stack</span>
+        </div>
+        <div class="pc-metrics">
+          <div class="metric"><b>−51%</b><span>initial bundle via code splitting (601 → 295 KB)</span></div>
+          <div class="metric"><b>3 tiers</b><span>Vercel frontend · Render API · Neon Postgres</span></div>
+          <div class="metric"><b>1 call</b><span>per neighbourhood per day: weather cached server-side</span></div>
+          <!-- USAGE METRIC — uncomment and fill in when ready:
+          <div class="metric metric-usage"><b>200+</b><span>activities rated by families</span></div>
+          -->
+        </div>
+        <div class="pc-actions">
+          <a href="https://jumble.nusrathfathima.com" target="_blank" rel="noopener" class="pc-btn">↗ Explore Project</a>
+          <!-- TODO: confirm this is the right repo URL -->
+          <a href="https://github.com/nusrathfathima/jumble" target="_blank" rel="noopener" class="pc-btn pc-btn-ghost">⌥ View Code</a>
+        </div>
+        <div class="ml-showcase">
+          <a class="jb-poster" href="https://jumble.nusrathfathima.com" target="_blank" rel="noopener" title="Open Jumble">
+            <div class="jb-poster-bar">
+              <span class="ml-dot" style="background:#ff5f57"></span><span class="ml-dot" style="background:#febc2e"></span><span class="ml-dot" style="background:#28c840"></span>
+              <span class="jb-poster-url">jumble.nusrathfathima.com</span>
+            </div>
+            <div class="jb-poster-body">
+              <div class="jb-bunting"><i style="background:#7ac478"></i><i style="background:#ffb38a"></i><i style="background:#f6d365"></i><i style="background:#7ac478"></i><i style="background:#ffb38a"></i><i style="background:#f6d365"></i></div>
+              <div class="jb-brand">🌱 Jumble</div>
+              <div class="jb-tagline">Bored kids? <em>Spin up</em> something fun.</div>
+              <div class="jb-card">
+                <div class="jb-pick">✦ Today's top pick for Maya, 6</div>
+                <div class="jb-title">Paper-plate ladybugs</div>
+                <div class="jb-meta"><span>🎨 Crafts</span><span>⏱ 30 min</span><span>🏠 Indoors · rainy day</span></div>
+                <div class="jb-rate"><span>💚 Loved</span><span>🙂 Okay</span><span>😴 Skip</span></div>
+              </div>
+            </div>
+          </a>
+          <div class="ml-features">
+            <div class="ml-feat"><span class="ml-feat-ic">👧</span><div><b>Child profiles</b><span>Each kid gets their own age, interests &amp; history</span></div></div>
+            <div class="ml-feat"><span class="ml-feat-ic">🧺</span><div><b>Supplies on hand</b><span>Only shows activities you have the materials for</span></div></div>
+            <div class="ml-feat"><span class="ml-feat-ic">💡</span><div><b>Explained picks</b><span>Every suggestion says why: interests, weather, time &amp; mess level</span></div></div>
+            <div class="ml-feat"><span class="ml-feat-ic">🔁</span><div><b>Learns per child</b><span>Loved / Okay / Skip ratings re-weight that child's future picks</span></div></div>
+                        <div class="ml-feat"><span class="ml-feat-ic">☕</span><div><b>Java backend</b><span>Spring Boot REST API, secure login, tuned database queries</span></div></div>
           </div>
         </div>
       </div>
@@ -561,6 +702,10 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
           <div class="tool-chip">🐙 GitHub</div>
           <div class="tool-chip">📱 Flexbox</div>
           <div class="tool-chip">🏗️ CSS Grid</div>
+          <div class="tool-chip">☕ Java</div>
+          <div class="tool-chip">🍃 Spring Boot</div>
+          <div class="tool-chip">🐘 PostgreSQL</div>
+          <div class="tool-chip">▲ Vercel</div>
         </div>
       </div>
     </div>
@@ -604,6 +749,7 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
             <div class="rp-item"><div class="t">Weather App</div><div class="m">Open-Meteo API · Geolocation · 5-day forecast</div></div>
             <div class="rp-item"><div class="t">Task Manager</div><div class="m">Priorities · Due dates · Progress tracking</div></div>
             <div class="rp-item"><div class="t">Mealody (AI)</div><div class="m">Claude API · Serverless · Vercel</div></div>
+            <div class="rp-item"><div class="t">Jumble</div><div class="m">React · Spring Boot · PostgreSQL</div></div>
           </div>
           <div class="rp-sec">
             <div class="rp-lbl">Skills</div>
@@ -612,7 +758,9 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
               <span class="rp-chip">HTML5</span><span class="rp-chip">CSS3</span>
               <span class="rp-chip">Git</span><span class="rp-chip">REST APIs</span>
               <span class="rp-chip">Responsive</span>
+              <span class="rp-chip">Java</span><span class="rp-chip">Spring Boot</span><span class="rp-chip">PostgreSQL</span>
             </div>
+            <a href="resume.pdf" download="Nusrath-Fathima-Resume.pdf" class="rp-download resume-link" data-track="about">⬇ Download full résumé (PDF)</a>
           </div>
         </div>
       </div>
@@ -627,17 +775,42 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
     <div class="contact-card reveal">
       <div class="eyebrow">Let's connect</div>
       <h2 class="section-title">Open to opportunities</h2>
-      <p class="section-body">Have a project in mind or a role that needs a passionate developer? Let's make it happen.</p>
+      <p class="section-body">Have a project in mind or a role that needs a passionate developer? Send me a message. It goes straight to my inbox.</p>
+
+      <!-- CONTACT FORM — sent through Web3Forms (free, 250/month). Paste your access key below. -->
+      <form class="c-form" id="contactForm" novalidate>
+        <input type="hidden" name="access_key" value="a58c34e8-c55b-4a21-8b7d-f65161eb725e"/>
+        <input type="hidden" name="subject" value="New message from nusrathfathima.com"/>
+        <input type="hidden" name="from_name" value="Portfolio contact form"/>
+        <!-- Honeypot: hidden from people, bots fill it in and get rejected -->
+        <input type="checkbox" name="botcheck" class="c-hp" tabindex="-1" autocomplete="off" aria-hidden="true"/>
+        <div class="c-field">
+          <label for="cName">Name</label>
+          <input id="cName" name="name" type="text" placeholder="Your name" autocomplete="name" required maxlength="100"/>
+        </div>
+        <div class="c-field">
+          <label for="cEmail">Email</label>
+          <input id="cEmail" name="email" type="email" placeholder="you@company.com" autocomplete="email" required maxlength="150"/>
+        </div>
+        <div class="c-field c-field-full">
+          <label for="cMsg">Message</label>
+          <textarea id="cMsg" name="message" placeholder="Tell me about the role or project…" required maxlength="3000"></textarea>
+        </div>
+        <button type="submit" class="c-link c-primary c-submit" id="cSubmit">✉️ Send message</button>
+        <p class="c-status" id="cStatus" role="status" aria-live="polite"></p>
+      </form>
+
+      <p class="c-or">or reach me directly</p>
       <div class="contact-links">
         <a href="mailto:nusrathfathima567@gmail.com" class="c-link c-primary">✉️ Email me</a>
-        <a href="https://www.linkedin.com/in/nusrathfathima567" class="c-link c-ghost">LinkedIn ↗</a>
-        <a href="https://github.com/nusrathfathima" class="c-link c-ghost">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/nusrathfathima567" target="_blank" rel="noopener" class="c-link c-ghost">LinkedIn ↗</a>
+        <a href="https://github.com/nusrathfathima" target="_blank" rel="noopener" class="c-link c-ghost">GitHub ↗</a>
       </div>
     </div>
   </section>
 </div>
 
-<footer>Built with care by Nusrath Fathima · 2025</footer>
+<footer>Built with care by Nusrath Fathima · <span id="year">2026</span></footer>
 
 <script>
 /* SCROLL REVEAL */
@@ -732,6 +905,58 @@ function render(){
   document.getElementById('tSum').textContent=tasks.length?`${done}/${tasks.length} done`:'';
 }
 render();
+
+/* RESUME DOWNLOAD
+   Buttons stay hidden until resume.pdf actually exists in the repo,
+   so visitors never hit a broken link. Each click is logged in GA4. */
+(function(){
+  const links=document.querySelectorAll('.resume-link');
+  links.forEach(a=>a.hidden=true);
+  fetch('resume.pdf',{method:'HEAD',cache:'no-store'})
+    .then(r=>{ if(r.ok) links.forEach(a=>a.hidden=false); })
+    .catch(()=>{});
+  links.forEach(a=>a.addEventListener('click',()=>{
+    if(typeof gtag==='function') gtag('event','resume_download',{location:a.dataset.track||'unknown'});
+  }));
+})();
+
+/* CONTACT FORM (Web3Forms) */
+(function(){
+  const form=document.getElementById('contactForm');
+  if(!form) return;
+  const btn=document.getElementById('cSubmit');
+  const status=document.getElementById('cStatus');
+  const setStatus=(msg,type)=>{status.textContent=msg;status.className='c-status'+(type?' '+type:'');};
+
+  form.addEventListener('submit',async e=>{
+    e.preventDefault();
+    const name=document.getElementById('cName').value.trim(), email=document.getElementById('cEmail').value.trim(), message=document.getElementById('cMsg').value.trim();
+    if(!name||!email||!message){ setStatus('Please fill in your name, email, and message.','err'); return; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ setStatus('That email address doesn\'t look right.','err'); document.getElementById('cEmail').focus(); return; }
+    if(form.querySelector('[name=access_key]').value.startsWith('YOUR_')){ setStatus('Form not connected yet. Please email me directly below.','err'); return; }
+
+    btn.disabled=true; btn.textContent='Sending…'; setStatus('');
+    try{
+      const res=await fetch('https://api.web3forms.com/submit',{
+        method:'POST',
+        headers:{'Content-Type':'application/json',Accept:'application/json'},
+        body:JSON.stringify(Object.fromEntries(new FormData(form)))
+      });
+      const data=await res.json();
+      if(!res.ok||!data.success) throw new Error(data.message||'Send failed');
+      form.reset();
+      setStatus('Thanks! Your message is on its way. I\'ll reply soon.','ok');
+      if(typeof gtag==='function') gtag('event','contact_form_submit');
+    }catch(err){
+      setStatus('Something went wrong. Please email me directly below.','err');
+    }finally{
+      btn.disabled=false; btn.textContent='✉️ Send message';
+    }
+  });
+})();
+
+/* FOOTER YEAR */
+document.getElementById('year').textContent=new Date().getFullYear();
 
 /* SCROLL TO TOP ON REFRESH */
 if('scrollRestoration' in history){history.scrollRestoration='manual';}
