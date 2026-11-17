@@ -68,8 +68,11 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 0;background:var(--nav-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background .3s;}
 .nav-inner{max-width:1080px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;}
-.logo{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;background:var(--hero-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none;cursor:pointer;transition:opacity .2s;}
-.logo:hover{opacity:.7;}
+.logo{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;cursor:pointer;transition:opacity .2s;}
+.logo:hover{opacity:.8;}
+.logo-mark{width:34px;height:34px;border-radius:22%;display:block;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.18);transition:transform .25s var(--ease);}
+.logo:hover .logo-mark{transform:rotate(-6deg) scale(1.06);}
+.logo-text{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;background:var(--hero-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
 .nav-links{display:flex;gap:.2rem;list-style:none;}
 .nav-links a{text-decoration:none;color:var(--muted);font-size:.82rem;font-weight:500;padding:.4rem .8rem;border-radius:6px;transition:all .2s var(--ease);}
 .nav-links a:hover{color:var(--text);background:var(--surface2);}
@@ -367,7 +370,7 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
 /* RESPONSIVE */
 @media(max-width:900px){.hero{grid-template-columns:1fr;}.hero-right{display:none;}.scroll-hint{display:none;}}
 @media(max-width:840px){.projects-grid,.skills-wrap,.about-grid{grid-template-columns:minmax(0,1fr);}.resume-panel{position:static;}.contact-card{padding:2.5rem 1.5rem;}}
-@media(max-width:600px){.container{padding:0 1.25rem;}.nav-inner{padding:0 1.25rem;}.nav-links{display:none;}.hero{padding:7rem 0 4rem;}.section{padding:4rem 0;}.hero h1{font-size:2.4rem;}}
+@media(max-width:600px){.logo-mark{width:30px;height:30px;}.logo-text{font-size:1.05rem;}.container{padding:0 1.25rem;}.nav-inner{padding:0 1.25rem;}.nav-links{display:none;}.hero{padding:7rem 0 4rem;}.section{padding:4rem 0;}.hero h1{font-size:2.4rem;}}
 @media(max-width:600px){
   /* embed: shorter, scrollable on phones */
   /* project demo grids stack cleanly */
@@ -400,7 +403,7 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
 
 <nav>
   <div class="nav-inner">
-    <a href="#" class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Nusrath Fathima</a>
+    <a href="#" class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;"><img src="nav-icon.png" alt="" class="logo-mark" width="34" height="34"/><span class="logo-text">Nusrath Fathima</span></a>
     <ul class="nav-links">
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -779,7 +782,7 @@ footer{text-align:center;padding:2rem;font-size:.75rem;color:var(--subtle);borde
 
       <!-- CONTACT FORM — sent through Web3Forms (free, 250/month). Paste your access key below. -->
       <form class="c-form" id="contactForm" novalidate>
-        <input type="hidden" name="access_key" value="a58c34e8-c55b-4a21-8b7d-f65161eb725e"/>
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY"/>
         <input type="hidden" name="subject" value="New message from nusrathfathima.com"/>
         <input type="hidden" name="from_name" value="Portfolio contact form"/>
         <!-- Honeypot: hidden from people, bots fill it in and get rejected -->
